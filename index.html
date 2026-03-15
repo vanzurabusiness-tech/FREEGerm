@@ -1,8 +1,8 @@
 <html lang="de"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prämien verdienen mit dem Smartphone</title>
-  <meta name="description" content="Nutze deine Zeit am Handy sinnvoll. Werde für das Testen von Apps und Spielen bezahlt.">
+  <title>Prämien verdienen mit Apps & Spielen</title>
+  <meta name="description" content="Verwandle deine Zeit am Handy in echtes Geld. Werde für das Testen von Apps und Spielen bezahlt.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: hsl(222, 47%, 7%); color: white; min-height: 100vh; overflow-x: hidden; }
@@ -27,6 +27,7 @@
     .hero p { font-size: 16px; color: hsl(220, 9%, 70%); line-height: 1.6; max-width: 440px; margin: 0 auto; }
     .feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.2s both; }
     .pill { display: flex; align-items: center; gap: 6px; font-size: 12px; color: hsl(220, 9%, 70%); background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 999px; border: 1px solid hsla(160, 84%, 39%, 0.3); }
+    .pill svg { width: 14px; height: 14px; color: hsl(160, 84%, 45%); }
     .offers-section { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.3s both; }
     .section-label { font-size: 11px; font-weight: 700; color: hsl(220, 9%, 70%); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
     .offer-row { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 14px; margin-bottom: 10px; transition: all 0.3s; text-decoration: none; color: inherit; }
@@ -34,7 +35,7 @@
     .offer-row img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
     .offer-info { flex: 1; text-align: left; }
     .offer-info h4 { font-size: 14px; font-weight: 700; }
-    .offer-info .hot { font-size: 9px; font-weight: 800; background: hsla(160, 84%, 39%, 0.2); color: hsl(160, 84%, 39%); padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
+    .offer-info .hot { font-size: 9px; font-weight: 800; background: hsla(160, 84%, 39%, 0.2); color: hsl(160, 84%, 39%); padding: 2px 8px; border-radius: 999px; margin-left: 6px; }
     .offer-info p { font-size: 12px; color: hsl(220, 9%, 70%); margin-top: 3px; }
     .offer-price { text-align: right; flex-shrink: 0; }
     .offer-price .amount { font-size: 18px; font-weight: 800; color: hsl(160, 84%, 39%); }
@@ -55,6 +56,7 @@
     .age-question-box { background: #f8f8f8; border: 1.5px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; font-size: 18px; font-weight: 700; }
     .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
     .age-range-btn { padding: 16px 10px; border-radius: 12px; border: 1px solid #e0e0e0; cursor: pointer; font-size: 15px; font-weight: 700; background: #fff; color: #111; }
+    .age-range-btn:hover, .age-range-btn.selected { border-color: hsl(160, 84%, 39%); background: #f0faf5; color: hsl(160, 84%, 39%); }
   </style>
 </head>
 <body>
@@ -70,7 +72,7 @@
         <button class="age-range-btn" data-age="35-44">35 – 44</button>
         <button class="age-range-btn" data-age="45+">45+</button>
       </div>
-      <p style="font-size:10px; color:#999">Nutzung ab 18 Jahren. Daten werden vertraulich behandelt.</p>
+      <p style="font-size:10px; color:#999">Die Nutzung ist ab 18 Jahren gestattet. Wir behandeln deine Daten vertraulich.</p>
     </div>
   </div>
 
@@ -85,7 +87,7 @@
     <div class="sticky-nav">
       <div class="nav-inner">
         <div class="nav-brand">
-          <img src="images/freecash-logo.png" alt="Logo">
+          <img src="images/freecash-logo.png" alt="FreeCash">
           <span>FreeCash</span>
         </div>
         <div class="nav-timer">
@@ -98,16 +100,16 @@
     <main>
       <div class="content">
         <div class="hero">
-          <div class="trust-pill">Offizielle Partner-Plattform</div>
+          <div class="trust-pill">Von über 50.000 Nutzern bewertet</div>
           <h1>Werde für das Testen von <span class="gradient">Apps & Spielen</span> belohnt</h1>
-          <p>Nutze dein Smartphone sinnvoll und sichere dir tägliche Auszahlungen. Einfach, sicher und direkt auf dein Konto.</p>
+          <p>Verwandle deine Zeit am Handy sinnvoll. Join tausenden Nutzern, die täglich Belohnungen sammeln.</p>
         </div>
 
         <div class="feature-pills">
-          <div class="pill">Schnelle Auszahlung</div>
-          <div class="pill">Große App-Auswahl</div>
-          <div class="pill">Tägliche Belohnungen</div>
-          <div class="pill">100% Kostenlos</div>
+          <div class="pill">Sofortige Auszahlung</div>
+          <div class="pill">Über 100 Apps & Spiele</div>
+          <div class="pill">Tägliche Boni</div>
+          <div class="pill">Sicher & Geprüft</div>
         </div>
 
         <div class="offers-section">
@@ -121,15 +123,15 @@
           </a>
 
           <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="offer-row featured">
-            <img src="images/domino-icon.png" alt="App">
-            <div class="offer-info"><div class="name-row"><h4>Domino Challenge</h4><span class="hot">BELIEBT</span></div><p>Zielvorgabe erreichen</p></div>
+            <img src="https://play-lh.googleusercontent.com/KPBcFtNGNn3cMtgFthtbrWL0COVs5bINj1aQYniBa6JxgI-FAkce2czhVONttEtLQXnfd0X5rHA6YGMHp3nfWw=s96-rw" alt="Domino Dreams">
+            <div class="offer-info"><h4>Domino Dreams<span class="hot">HEISS</span></h4><p>Level 10 erreichen</p></div>
             <div class="offer-price"><div class="amount">1.420€</div></div>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </a>
 
           <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="offer-row">
-            <img src="images/solitaire-icon.png" alt="Game">
-            <div class="offer-info"><h4>Solitaire Strategie</h4><p>Kurzes Tutorial spielen</p></div>
+            <img src="https://play-lh.googleusercontent.com/bM7NyvBcpwZSz0nnpC_o-pmgb5IhFuvy2I2YHA8NYIT3-vrSl6cRAs4mouQmMceLAS_eRU8XAmiv95sQNE54=w480-h960-rw" alt="Solitaire Clash">
+            <div class="offer-info"><h4>Solitaire Clash</h4><p>15 Spiele gewinnen</p></div>
             <div class="offer-price"><div class="amount">1.713€</div></div>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </a>
@@ -140,18 +142,18 @@
           <div class="steps-grid">
             <div class="step-card">
               <div class="step-num">01</div>
-              <h4>Anmelden</h4>
-              <p>Erstelle dein kostenloses Profil</p>
+              <h4>App laden</h4>
+              <p>Für iOS & Android verfügbar</p>
             </div>
             <div class="step-card">
               <div class="step-num">02</div>
-              <h4>Testen</h4>
-              <p>Wähle eine App oder ein Spiel aus</p>
+              <h4>Konto erstellen</h4>
+              <p>Anmeldung in unter 30 Sek.</p>
             </div>
             <div class="step-card">
               <div class="step-num">03</div>
-              <h4>Kassieren</h4>
-              <p>Erhalte deine Prämie sofort</p>
+              <h4>Nutzen & Verdienen</h4>
+              <p>Werde pro Test bezahlt</p>
             </div>
           </div>
         </div>
@@ -185,4 +187,5 @@
       });
     });
   </script>
+
 </body></html>
