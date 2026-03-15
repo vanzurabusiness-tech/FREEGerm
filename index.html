@@ -27,38 +27,26 @@
     .hero p { font-size: 16px; color: hsl(220, 9%, 70%); line-height: 1.6; max-width: 440px; margin: 0 auto; }
     .feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.2s both; }
     .pill { display: flex; align-items: center; gap: 6px; font-size: 12px; color: hsl(220, 9%, 70%); background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 999px; border: 1px solid hsla(160, 84%, 39%, 0.3); }
-    .pill svg { width: 14px; height: 14px; color: hsl(160, 84%, 45%); }
     .offers-section { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.3s both; }
     .section-label { font-size: 11px; font-weight: 700; color: hsl(220, 9%, 70%); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-    .offer-row { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 14px; margin-bottom: 10px; transition: all 0.3s; }
+    .offer-row { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 14px; margin-bottom: 10px; transition: all 0.3s; text-decoration: none; color: inherit; }
     .offer-row.featured { border-color: hsl(160, 84%, 39%); box-shadow: 0 5px 20px hsla(160, 84%, 39%, 0.2); }
     .offer-row img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
     .offer-info { flex: 1; text-align: left; }
-    .offer-info .name-row { display: flex; align-items: center; gap: 8px; }
     .offer-info h4 { font-size: 14px; font-weight: 700; }
-    .offer-info .hot { font-size: 9px; font-weight: 800; background: hsla(160, 84%, 39%, 0.2); color: hsl(160, 84%, 39%); padding: 2px 8px; border-radius: 999px; }
+    .offer-info .hot { font-size: 9px; font-weight: 800; background: hsla(160, 84%, 39%, 0.2); color: hsl(160, 84%, 39%); padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
     .offer-info p { font-size: 12px; color: hsl(220, 9%, 70%); margin-top: 3px; }
     .offer-price { text-align: right; flex-shrink: 0; }
     .offer-price .amount { font-size: 18px; font-weight: 800; color: hsl(160, 84%, 39%); }
-    .offer-price .rating { display: flex; align-items: center; gap: 3px; font-size: 11px; color: hsl(43, 74%, 49%); justify-content: flex-end; margin-top: 2px; }
-    .offer-price .rating svg { width: 10px; height: 10px; fill: hsl(43, 74%, 49%); }
     .chevron { width: 16px; height: 16px; color: hsl(220, 9%, 70%); flex-shrink: 0; }
     .steps-section { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.5s both; }
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .step-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 16px; text-align: center; }
     .step-num { font-size: 24px; font-weight: 900; color: hsla(160, 84%, 39%, 0.3); margin-bottom: 10px; }
-    .step-icon-box { width: 40px; height: 40px; margin: 0 auto 10px; background: linear-gradient(135deg, hsl(160, 84%, 45%), hsl(160, 84%, 39%)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-    .step-icon-box svg { width: 18px; height: 18px; color: white; }
     .step-card h4 { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
     .step-card p { font-size: 10px; color: hsl(220, 9%, 70%); line-height: 1.3; }
     .trustpilot { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.6s both; }
-    .trustpilot .stars { display: flex; gap: 2px; }
-    .trustpilot .stars svg { width: 16px; height: 16px; fill: hsl(160, 84%, 39%); }
-    .trustpilot .score { font-size: 14px; font-weight: 700; }
-    .trustpilot .meta { font-size: 12px; color: hsl(220, 9%, 70%); }
     .bottom-cta { display: block; width: 100%; text-align: center; text-decoration: none; cursor: pointer; background: linear-gradient(to right, hsl(160, 84%, 39%), hsl(160, 84%, 45%)); color: white; font-size: 18px; font-weight: 700; padding: 20px; border-radius: 16px; border: 1px solid hsla(158, 64%, 52%, 0.3); box-shadow: 0 20px 25px -5px hsla(160, 84%, 39%, 0.5); transition: all 0.3s; animation: fadeInUp 0.8s ease-out 0.7s both; }
-    .bottom-cta:hover { transform: translateY(-2px); }
-    .bottom-cta span { display: flex; align-items: center; justify-content: center; gap: 8px; }
 
     /* Popups */
     #age-gate { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -67,13 +55,6 @@
     .age-question-box { background: #f8f8f8; border: 1.5px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; font-size: 18px; font-weight: 700; }
     .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
     .age-range-btn { padding: 16px 10px; border-radius: 12px; border: 1px solid #e0e0e0; cursor: pointer; font-size: 15px; font-weight: 700; background: #fff; color: #111; }
-    .age-range-btn:hover { border-color: hsl(160, 84%, 39%); background: #f0faf5; }
-    #under21-warning { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 20px; }
-    #under21-warning.visible { display: flex; }
-    .warning-box { width: 100%; max-width: 380px; background: #fff; border-radius: 20px; padding: 28px; text-align: center; color: #111; }
-    .warning-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-    .warning-btn-ok { padding: 14px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; background: hsl(160, 84%, 39%); color: #fff; }
-    .warning-btn-no { padding: 14px; border-radius: 10px; border: 1px solid #ddd; cursor: pointer; font-size: 14px; font-weight: 700; background: #fff; color: #666; }
   </style>
 </head>
 <body>
@@ -89,18 +70,7 @@
         <button class="age-range-btn" data-age="35-44">35 – 44</button>
         <button class="age-range-btn" data-age="45+">45+</button>
       </div>
-      <p style="font-size:10px; color:#999">Die Nutzung ist ab 18 Jahren gestattet. Wir behandeln deine Daten vertraulich.</p>
-    </div>
-  </div>
-
-  <div id="under21-warning">
-    <div class="warning-box">
-      <h3 style="margin-bottom:10px">Wichtiger Hinweis</h3>
-      <p style="font-size:14px; color:#444">Um die vollen Auszahlungs-Boni zu erhalten, musst du mindestens 21 Jahre alt sein. Möchtest du trotzdem fortfahren?</p>
-      <div class="warning-btns">
-        <button class="warning-btn-ok" id="warning-ok">Ja, fortfahren</button>
-        <button class="warning-btn-no" id="warning-no">Abbrechen</button>
-      </div>
+      <p style="font-size:10px; color:#999">Nutzung ab 18 Jahren. Daten werden vertraulich behandelt.</p>
     </div>
   </div>
 
@@ -128,9 +98,7 @@
     <main>
       <div class="content">
         <div class="hero">
-          <div class="trust-pill">
-            Offizielle Partner-Plattform
-          </div>
+          <div class="trust-pill">Offizielle Partner-Plattform</div>
           <h1>Werde für das Testen von <span class="gradient">Apps & Spielen</span> belohnt</h1>
           <p>Nutze dein Smartphone sinnvoll und sichere dir tägliche Auszahlungen. Einfach, sicher und direkt auf dein Konto.</p>
         </div>
@@ -144,24 +112,27 @@
 
         <div class="offers-section">
           <div class="section-label">Aktuelle Top-Angebote</div>
-          <div class="offer-row">
-            <img src="images/netflix-logo.png" alt="Stream">
-            <div class="offer-info"><h4>Streaming-Test</h4><p>Angebot freischalten</p></div>
+          
+          <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="offer-row">
+            <img src="images/netflix-logo.png" alt="Netflix">
+            <div class="offer-info"><h4>Netflix</h4><p>Probemonat starten</p></div>
             <div class="offer-price"><div class="amount">35,00€</div></div>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </div>
-          <div class="offer-row featured">
-            <img src="https://play-lh.googleusercontent.com/KPBcFtNGNn3cMtgFthtbrWL0COVs5bINj1aQYniBa6JxgI-FAkce2czhVONttEtLQXnfd0X5rHA6YGMHp3nfWw=s96-rw" alt="App">
+          </a>
+
+          <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="offer-row featured">
+            <img src="images/domino-icon.png" alt="App">
             <div class="offer-info"><div class="name-row"><h4>Domino Challenge</h4><span class="hot">BELIEBT</span></div><p>Zielvorgabe erreichen</p></div>
             <div class="offer-price"><div class="amount">1.420€</div></div>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </div>
-          <div class="offer-row">
-            <img src="https://play-lh.googleusercontent.com/bM7NyvBcpwZSz0nnpC_o-pmgb5IhFuvy2I2YHA8NYIT3-vrSl6cRAs4mouQmMceLAS_eRU8XAmiv95sQNE54=w480-h960-rw" alt="Game">
+          </a>
+
+          <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="offer-row">
+            <img src="images/solitaire-icon.png" alt="Game">
             <div class="offer-info"><h4>Solitaire Strategie</h4><p>Kurzes Tutorial spielen</p></div>
             <div class="offer-price"><div class="amount">1.713€</div></div>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </div>
+          </a>
         </div>
 
         <div class="steps-section">
@@ -186,7 +157,7 @@
         </div>
 
         <div class="trustpilot">
-          <div class="stars">★★★★★</div>
+          <span style="color:#00b67a; font-size:20px">★★★★★</span>
           <span class="score">4.8</span>
           <span class="meta">auf Trustpilot</span>
         </div>
@@ -210,23 +181,8 @@
 
     document.querySelectorAll('.age-range-btn').forEach(function(btn) {
       btn.addEventListener('click', function () {
-        var ageRange = btn.getAttribute('data-age');
-        if (ageRange === 'under-21') {
-          document.getElementById('age-gate').classList.add('hidden');
-          document.getElementById('under21-warning').classList.add('visible');
-        } else {
-          document.getElementById('age-gate').classList.add('hidden');
-        }
+        document.getElementById('age-gate').classList.add('hidden');
       });
     });
-
-    document.getElementById('warning-ok').addEventListener('click', function () {
-      document.getElementById('under21-warning').classList.remove('visible');
-    });
-
-    document.getElementById('warning-no').addEventListener('click', function () {
-       window.location.href = 'https://google.de';
-    });
   </script>
-
 </body></html>
