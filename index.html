@@ -1,0 +1,232 @@
+<html lang="de"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prämien verdienen mit dem Smartphone</title>
+  <meta name="description" content="Nutze deine Zeit am Handy sinnvoll. Werde für das Testen von Apps und Spielen bezahlt.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: hsl(222, 47%, 7%); color: white; min-height: 100vh; overflow-x: hidden; }
+    .bg-decoration { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .bg-gradient-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, hsla(160, 84%, 39%, 0.1), transparent, hsla(160, 84%, 45%, 0.1)); }
+    .bg-stripes { position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, hsla(160, 84%, 39%, 0.03) 0px, hsla(160, 84%, 39%, 0.03) 2px, transparent 2px, transparent 40px); }
+    .bg-blob-center { position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; background: hsla(160, 84%, 39%, 0.08); filter: blur(120px); }
+    .bg-blob-bottom { position: absolute; bottom: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: hsla(160, 84%, 45%, 0.06); filter: blur(100px); }
+    .sticky-nav { position: sticky; top: 0; z-index: 50; background: hsla(222, 47%, 7%, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid hsla(160, 84%, 39%, 0.3); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 640px; margin: 0 auto; padding: 12px 16px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+    .nav-brand span { font-weight: 700; font-size: 14px; }
+    .nav-timer { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: hsl(43, 74%, 49%); }
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; position: relative; z-index: 10; }
+    .content { width: 100%; max-width: 580px; margin: 0 auto; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { text-align: center; margin-bottom: 28px; animation: fadeInUp 0.8s ease-out; }
+    .trust-pill { display: inline-flex; align-items: center; gap: 6px; background: hsla(160, 84%, 39%, 0.1); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: hsl(160, 84%, 39%); margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .hero h1 .gradient { background: linear-gradient(to right, hsl(158, 64%, 85%), white, hsl(158, 64%, 85%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 16px; color: hsl(220, 9%, 70%); line-height: 1.6; max-width: 440px; margin: 0 auto; }
+    .feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.2s both; }
+    .pill { display: flex; align-items: center; gap: 6px; font-size: 12px; color: hsl(220, 9%, 70%); background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 8px 12px; border-radius: 999px; border: 1px solid hsla(160, 84%, 39%, 0.3); }
+    .pill svg { width: 14px; height: 14px; color: hsl(160, 84%, 45%); }
+    .offers-section { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.3s both; }
+    .section-label { font-size: 11px; font-weight: 700; color: hsl(220, 9%, 70%); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .offer-row { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 14px; margin-bottom: 10px; transition: all 0.3s; }
+    .offer-row.featured { border-color: hsl(160, 84%, 39%); box-shadow: 0 5px 20px hsla(160, 84%, 39%, 0.2); }
+    .offer-row img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+    .offer-info { flex: 1; text-align: left; }
+    .offer-info .name-row { display: flex; align-items: center; gap: 8px; }
+    .offer-info h4 { font-size: 14px; font-weight: 700; }
+    .offer-info .hot { font-size: 9px; font-weight: 800; background: hsla(160, 84%, 39%, 0.2); color: hsl(160, 84%, 39%); padding: 2px 8px; border-radius: 999px; }
+    .offer-info p { font-size: 12px; color: hsl(220, 9%, 70%); margin-top: 3px; }
+    .offer-price { text-align: right; flex-shrink: 0; }
+    .offer-price .amount { font-size: 18px; font-weight: 800; color: hsl(160, 84%, 39%); }
+    .offer-price .rating { display: flex; align-items: center; gap: 3px; font-size: 11px; color: hsl(43, 74%, 49%); justify-content: flex-end; margin-top: 2px; }
+    .offer-price .rating svg { width: 10px; height: 10px; fill: hsl(43, 74%, 49%); }
+    .chevron { width: 16px; height: 16px; color: hsl(220, 9%, 70%); flex-shrink: 0; }
+    .steps-section { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.5s both; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .step-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid hsla(160, 84%, 39%, 0.3); border-radius: 16px; padding: 16px; text-align: center; }
+    .step-num { font-size: 24px; font-weight: 900; color: hsla(160, 84%, 39%, 0.3); margin-bottom: 10px; }
+    .step-icon-box { width: 40px; height: 40px; margin: 0 auto 10px; background: linear-gradient(135deg, hsl(160, 84%, 45%), hsl(160, 84%, 39%)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .step-icon-box svg { width: 18px; height: 18px; color: white; }
+    .step-card h4 { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+    .step-card p { font-size: 10px; color: hsl(220, 9%, 70%); line-height: 1.3; }
+    .trustpilot { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.6s both; }
+    .trustpilot .stars { display: flex; gap: 2px; }
+    .trustpilot .stars svg { width: 16px; height: 16px; fill: hsl(160, 84%, 39%); }
+    .trustpilot .score { font-size: 14px; font-weight: 700; }
+    .trustpilot .meta { font-size: 12px; color: hsl(220, 9%, 70%); }
+    .bottom-cta { display: block; width: 100%; text-align: center; text-decoration: none; cursor: pointer; background: linear-gradient(to right, hsl(160, 84%, 39%), hsl(160, 84%, 45%)); color: white; font-size: 18px; font-weight: 700; padding: 20px; border-radius: 16px; border: 1px solid hsla(158, 64%, 52%, 0.3); box-shadow: 0 20px 25px -5px hsla(160, 84%, 39%, 0.5); transition: all 0.3s; animation: fadeInUp 0.8s ease-out 0.7s both; }
+    .bottom-cta:hover { transform: translateY(-2px); }
+    .bottom-cta span { display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+    /* Popups */
+    #age-gate { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+    #age-gate.hidden { display: none; }
+    .age-gate-box { width: 100%; max-width: 400px; background: #ffffff; border-radius: 24px; padding: 32px 24px; text-align: center; color: #111; }
+    .age-question-box { background: #f8f8f8; border: 1.5px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; font-size: 18px; font-weight: 700; }
+    .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .age-range-btn { padding: 16px 10px; border-radius: 12px; border: 1px solid #e0e0e0; cursor: pointer; font-size: 15px; font-weight: 700; background: #fff; color: #111; }
+    .age-range-btn:hover { border-color: hsl(160, 84%, 39%); background: #f0faf5; }
+    #under21-warning { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 20px; }
+    #under21-warning.visible { display: flex; }
+    .warning-box { width: 100%; max-width: 380px; background: #fff; border-radius: 20px; padding: 28px; text-align: center; color: #111; }
+    .warning-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .warning-btn-ok { padding: 14px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; background: hsl(160, 84%, 39%); color: #fff; }
+    .warning-btn-no { padding: 14px; border-radius: 10px; border: 1px solid #ddd; cursor: pointer; font-size: 14px; font-weight: 700; background: #fff; color: #666; }
+  </style>
+</head>
+<body>
+
+  <div id="age-gate">
+    <div class="age-gate-box">
+      <h2 style="margin-bottom:8px">Kurze Bestätigung</h2>
+      <p style="font-size:13px; color:#666; margin-bottom:20px">Wähle dein Alter, um passende Angebote zu sehen.</p>
+      <div class="age-question-box">Wie alt bist du?</div>
+      <div class="age-grid">
+        <button class="age-range-btn" data-age="under-21">Unter 21</button>
+        <button class="age-range-btn" data-age="21-34">21 – 34</button>
+        <button class="age-range-btn" data-age="35-44">35 – 44</button>
+        <button class="age-range-btn" data-age="45+">45+</button>
+      </div>
+      <p style="font-size:10px; color:#999">Die Nutzung ist ab 18 Jahren gestattet. Wir behandeln deine Daten vertraulich.</p>
+    </div>
+  </div>
+
+  <div id="under21-warning">
+    <div class="warning-box">
+      <h3 style="margin-bottom:10px">Wichtiger Hinweis</h3>
+      <p style="font-size:14px; color:#444">Um die vollen Auszahlungs-Boni zu erhalten, musst du mindestens 21 Jahre alt sein. Möchtest du trotzdem fortfahren?</p>
+      <div class="warning-btns">
+        <button class="warning-btn-ok" id="warning-ok">Ja, fortfahren</button>
+        <button class="warning-btn-no" id="warning-no">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative; min-height:100vh; display:flex; flex-direction:column;">
+    <div class="bg-decoration">
+      <div class="bg-gradient-overlay"></div>
+      <div class="bg-stripes"></div>
+      <div class="bg-blob-center"></div>
+      <div class="bg-blob-bottom"></div>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <img src="images/freecash-logo.png" alt="Logo">
+          <span>FreeCash</span>
+        </div>
+        <div class="nav-timer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Bonus endet in <span id="countdown">29:44</span>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="content">
+        <div class="hero">
+          <div class="trust-pill">
+            Offizielle Partner-Plattform
+          </div>
+          <h1>Werde für das Testen von <span class="gradient">Apps & Spielen</span> belohnt</h1>
+          <p>Nutze dein Smartphone sinnvoll und sichere dir tägliche Auszahlungen. Einfach, sicher und direkt auf dein Konto.</p>
+        </div>
+
+        <div class="feature-pills">
+          <div class="pill">Schnelle Auszahlung</div>
+          <div class="pill">Große App-Auswahl</div>
+          <div class="pill">Tägliche Belohnungen</div>
+          <div class="pill">100% Kostenlos</div>
+        </div>
+
+        <div class="offers-section">
+          <div class="section-label">Aktuelle Top-Angebote</div>
+          <div class="offer-row">
+            <img src="images/netflix-logo.png" alt="Stream">
+            <div class="offer-info"><h4>Streaming-Test</h4><p>Angebot freischalten</p></div>
+            <div class="offer-price"><div class="amount">35,00€</div></div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+          <div class="offer-row featured">
+            <img src="https://play-lh.googleusercontent.com/KPBcFtNGNn3cMtgFthtbrWL0COVs5bINj1aQYniBa6JxgI-FAkce2czhVONttEtLQXnfd0X5rHA6YGMHp3nfWw=s96-rw" alt="App">
+            <div class="offer-info"><div class="name-row"><h4>Domino Challenge</h4><span class="hot">BELIEBT</span></div><p>Zielvorgabe erreichen</p></div>
+            <div class="offer-price"><div class="amount">1.420€</div></div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+          <div class="offer-row">
+            <img src="https://play-lh.googleusercontent.com/bM7NyvBcpwZSz0nnpC_o-pmgb5IhFuvy2I2YHA8NYIT3-vrSl6cRAs4mouQmMceLAS_eRU8XAmiv95sQNE54=w480-h960-rw" alt="Game">
+            <div class="offer-info"><h4>Solitaire Strategie</h4><p>Kurzes Tutorial spielen</p></div>
+            <div class="offer-price"><div class="amount">1.713€</div></div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="steps-section">
+          <div class="section-label">So funktioniert es</div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-num">01</div>
+              <h4>Anmelden</h4>
+              <p>Erstelle dein kostenloses Profil</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02</div>
+              <h4>Testen</h4>
+              <p>Wähle eine App oder ein Spiel aus</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03</div>
+              <h4>Kassieren</h4>
+              <p>Erhalte deine Prämie sofort</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="trustpilot">
+          <div class="stars">★★★★★</div>
+          <span class="score">4.8</span>
+          <span class="meta">auf Trustpilot</span>
+        </div>
+
+        <a href="https://trksy.org/aff_c?offer_id=3531&aff_id=138670&source=chapo" class="bottom-cta">
+          <span>Jetzt Belohnungen sichern!</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    var timeLeft = 1800;
+    var countdownEl = document.getElementById('countdown');
+    setInterval(function () {
+      timeLeft = timeLeft > 0 ? timeLeft - 1 : 1800;
+      var m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+      var s = (timeLeft % 60).toString().padStart(2, '0');
+      countdownEl.textContent = m + ':' + s;
+    }, 1000);
+
+    document.querySelectorAll('.age-range-btn').forEach(function(btn) {
+      btn.addEventListener('click', function () {
+        var ageRange = btn.getAttribute('data-age');
+        if (ageRange === 'under-21') {
+          document.getElementById('age-gate').classList.add('hidden');
+          document.getElementById('under21-warning').classList.add('visible');
+        } else {
+          document.getElementById('age-gate').classList.add('hidden');
+        }
+      });
+    });
+
+    document.getElementById('warning-ok').addEventListener('click', function () {
+      document.getElementById('under21-warning').classList.remove('visible');
+    });
+
+    document.getElementById('warning-no').addEventListener('click', function () {
+       window.location.href = 'https://google.de';
+    });
+  </script>
+
+</body></html>
